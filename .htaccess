@@ -1,0 +1,40 @@
+# ============================================================
+#  StockFlow — Seguridad de rutas
+#  Archivo: .htaccess (raíz del proyecto)
+# ============================================================
+
+# Activar el motor de reescritura
+RewriteEngine On
+
+# ── Seguridad básica ─────────────────────────────────────────
+
+# Bloquear acceso directo a carpetas sensibles
+# Nadie puede entrar a /config/ o /database/ desde el navegador
+RewriteRule ^config/         - [F,L]
+RewriteRule ^database/       - [F,L]
+RewriteRule ^includes/       - [F,L]
+
+# Bloquear acceso a archivos ocultos (.git, .env, etc.)
+RewriteRule (^|/)\.          - [F,L]
+
+# ── Proteger archivos específicos ────────────────────────────
+
+# Nadie puede acceder directamente a estos archivos
+<FilesMatch "\.(sql|log|sh|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ── Opciones de seguridad adicionales ────────────────────────
+
+# Ocultar la versión de PHP en las cabeceras
+# (esto en realidad se configura en php.ini, pero lo dejamos como recordatorio)
+
+# No mostrar el listado de archivos de ninguna carpeta
+Options -Indexes
+
+# Evitar ataques de clickjacking
+Header always set X-Frame-Options "SAMEORIGIN"
+
+# Evitar que el navegador adivine el tipo de archivo (MIME sniffing)
+Header always set X-Content-Type-Options "nosniff"
