@@ -121,7 +121,7 @@ require_once 'includes/header.php';
                 <?php while ($v = mysqli_fetch_assoc($ultimasVentas)): ?>
                     <tr>
                         <!-- Tu BD no tiene columna 'codigo' en ventas, lo generamos del id -->
-                        <td <code>VTA-<?= str_pad($v['id'], 5, '0', STR_PAD_LEFT) ?></code></td>
+                        <td> <code style="color:white">VTA-<?= str_pad($v['id'], 5, '0', STR_PAD_LEFT) ?></code></td>
                         <td><?= htmlspecialchars($v['cliente']) ?></td>
                         <td><?= htmlspecialchars($v['vendedor']) ?></td>
                         <td>S/ <?= number_format($v['total'], 2) ?></td>

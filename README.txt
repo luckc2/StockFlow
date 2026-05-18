@@ -15,3 +15,10 @@ Tecnologías:
 - JavaScript
 - Bootstrap
 - Apache (XAMPP)
+
+Los correos y contraseñas de almacen, vendedor y admin son:
+admin@stockflow.com
+almacen@stockflow.com
+vendedor@stockflow.com
+y todos con la contraseña:
+password

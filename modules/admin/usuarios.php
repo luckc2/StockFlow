@@ -120,7 +120,7 @@ require_once '../../includes/header.php';
     </div>
 
     <!-- ── Crear nuevo usuario ── -->
-    <div class="card">
+    <div class="card mt-4">
         <div class="card__header">
             <h2 class="card__title">Nuevo usuario</h2>
         </div>

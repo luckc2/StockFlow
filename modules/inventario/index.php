@@ -160,9 +160,11 @@ require_once '../../includes/header.php';
             </thead>
             <tbody>
             <?php if (mysqli_num_rows($productos) === 0): ?>
-                <tr><td colspan="10" class="text-center text-muted" style="padding:32px">
-                    No se encontraron productos con ese filtro.
-                </td></tr>
+                <tr>
+                    <td colspan="10" class="text-center text-muted" style="padding:32px">
+                        No se encontraron productos con ese filtro.
+                    </td>
+                </tr>
             <?php else: ?>
             <?php while ($p = mysqli_fetch_assoc($productos)):
                 $sin_stock = (int)$p['stock_actual'] === 0;
